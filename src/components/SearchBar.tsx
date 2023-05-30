@@ -2,10 +2,11 @@ import { useState } from "react";
 
 export interface SearchBarProps {
     onSearch: (t: string) => void;
+    query: string;
 }
 
-export default function SearchBar({ onSearch }: SearchBarProps) {
-    const [qry, setQry] = useState("");
+export default function SearchBar({ onSearch, query }: SearchBarProps) {
+    const [qry, setQry] = useState(query || "");
     return (
         <div className="search-wrap">
             <form

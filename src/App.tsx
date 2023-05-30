@@ -5,10 +5,12 @@ import PageLayout from "./components/PageLayout";
 
 const realmApp = new Realm.App({ id: "data-vcjyu" });
 function App() {
-    let setReady = useState(false)[1];
+    let [ready, setReady] = useState(false);
     useEffect(() => {
         (async () => {
-            await realmApp.logIn(Realm.Credentials.anonymous());
+            if (!realmApp.currentUser) {
+                await realmApp.logIn(Realm.Credentials.anonymous());
+            }
             setReady(true);
         })();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -16,11 +18,12 @@ function App() {
 
     return (
         <div className="App">
-            {realmApp.currentUser ? (
-                <PageLayout user={realmApp.currentUser} />
-            ) : (
-                <p>Loading...</p>
-            )}
+            {ready &&
+                (realmApp.currentUser ? (
+                    <PageLayout user={realmApp.currentUser} />
+                ) : (
+                    <p>Loading...</p>
+                ))}
         </div>
     );
 }

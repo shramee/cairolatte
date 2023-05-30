@@ -4,8 +4,10 @@ import Home from "../pages/Home";
 import { useEffect, useState } from "react";
 import SearchPage from "../pages/SearchPage";
 
+let initialSearchDone = false;
+
 export default function PageLayout({ user }: { user: Realm.User }) {
-    let [query, setQuery] = useState(window.location.search);
+    let [query, setQuery] = useState("");
     let [docs, setDocs] = useState([]);
     let collection: FuncsCollection = user
         .mongoClient("cairofoo")
@@ -27,24 +29,28 @@ export default function PageLayout({ user }: { user: Realm.User }) {
             { $limit: 10 },
         ];
         const url = new URL(window.location.toString());
-        url.searchParams.set("foo", "bar");
+        url.searchParams.set("q", query);
         window.history.pushState({}, "", url);
         let docs = await collection.aggregate(agg);
+        console.error("Called");
         setDocs(docs);
         console.log(query, docs);
     };
 
     useEffect(() => {
-        if (window.location.search) onSearch(window.location.search);
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get("q");
+        if (query && !initialSearchDone) onSearch(query);
+        initialSearchDone = true;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
         <div>
             {query ? (
-                <SearchPage {...{ onSearch }} />
+                <SearchPage {...{ docs, query, onSearch }} />
             ) : (
-                <Home {...{ onSearch }} />
+                <Home {...{ query, onSearch }} />
             )}
         </div>
     );
