@@ -14,7 +14,15 @@ export default function SearchPage({ docs, onSearch, query }: SearchPageProps) {
         <section className="search">
             <Header {...{ onSearch, query }} />
             <section className="main">
-                {docs && docs.map((fn) => <DocSearchResult {...{ fn }} />)}
+                {docs &&
+                    docs.map((fn) => (
+                        <DocSearchResult key={fn._id} {...{ fn }} />
+                    ))}
+                {docs && !docs.length && (
+                    <h1 style={{ marginTop: "20vh" }}>
+                        Sorry, no matches found for '<code>{query}</code>'
+                    </h1>
+                )}
             </section>
             <footer className="app-footer">
                 A catalog of Cairo functions.

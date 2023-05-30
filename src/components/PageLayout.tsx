@@ -32,9 +32,7 @@ export default function PageLayout({ user }: { user: Realm.User }) {
         url.searchParams.set("q", query);
         window.history.pushState({}, "", url);
         let docs = await collection.aggregate(agg);
-        console.error("Called");
         setDocs(docs);
-        console.log(query, docs);
     };
 
     useEffect(() => {
