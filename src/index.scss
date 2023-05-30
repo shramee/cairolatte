@@ -21,3 +21,63 @@ a {
     color: #7cf;
     text-decoration: none;
 }
+
+.gg-search {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    transform: scale(var(--ggs, 1));
+    width: 0.925em;
+    height: 0.9em;
+    border: 0.15em solid;
+    border-radius: 100%;
+
+    &::after {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        border-radius: 0 0 0.1875em 0.1875em;
+        width: 0.15em;
+        height: 0.4em;
+        background: currentColor;
+        transform: rotate(-37deg);
+        top: 0.6em;
+        left: 0.6em;
+    }
+}
+
+.search-wrap {
+    background-color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 1.6em;
+    display: flex;
+    box-shadow: 0 3px rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    .search-bar {
+        flex: 80%;
+        display: flex;
+        input,
+        button {
+            padding: 0.7em 1em;
+            border: none;
+            outline: none;
+        }
+        input {
+            width: 100%;
+        }
+        button {
+            background: #eee;
+            &:active {
+                background: #ddd;
+            }
+        }
+        input-placeholder {
+            color: red;
+        }
+        i {
+            color: #888;
+        }
+    }
+}
