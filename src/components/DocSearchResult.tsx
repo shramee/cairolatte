@@ -38,13 +38,13 @@ export default function DocSearchResult({ fn }: { fn: FuncDoc }) {
                 </aside>
             </header>
             <section>
-                <p>
-                    {fn.desc}{" "}
+                <p className="clear-fix">
                     <img
                         className="ml3 fr"
                         alt="GitHub stars"
                         src={`https://img.shields.io/github/last-commit/${fn.repo}?style=for-the-badge`}
                     />
+                    {fn.desc}
                 </p>
                 <Highlight className="rust">{fn.code}</Highlight>
             </section>
