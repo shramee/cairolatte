@@ -42,11 +42,9 @@ export default function PageLayout({ user }: { user: Realm.User }) {
     return (
         <div>
             {query ? (
-                <h3>
-                    Searching {query}, found {docs.length}
-                </h3>
+                <SearchPage {...{ onSearch }} />
             ) : (
-                <h3>Not searching</h3>
+                <Home {...{ onSearch }} />
             )}
         </div>
     );

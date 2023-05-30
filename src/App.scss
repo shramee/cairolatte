@@ -1,15 +1,19 @@
 .App {
     text-align: center;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
 }
 
-.App-logo {
+.app-logo {
     height: 100px;
     pointer-events: none;
 }
 
-.App-header {
-    max-width: 970px;
-    margin: auto;
+.app-home {
+    margin: 0;
     padding: 0 1.6em;
     min-height: 100vh;
     display: flex;
@@ -17,15 +21,15 @@
     align-items: center;
     justify-content: center;
     font-size: calc(11px + 1vmin);
+    background-color: #282c34;
     color: white;
     p {
         font-family: Judson, sans-serif;
         // text-align: left;
     }
-}
-
-.App-link {
-    color: #61dafb;
+    .search-wrap {
+        max-width: 970px;
+    }
 }
 
 @media screen and (min-width: 768px) {
