@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+        Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #1e222a;
+    color: #eee;
+}
+
+h1,
+h2 {
+    font-family: Quando, sans-serif;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+input,
+button {
+    font-size: inherit;
+}
+
+a {
+    color: rgb(201, 223, 237);
+    text-decoration: none;
+    text-decoration-thickness: 1px;
+    &:hover {
+        text-decoration: underline;
+    }
+}
