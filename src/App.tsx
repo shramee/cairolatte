@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.scss";
+import * as Realm from "realm-web";
 
+const realmApp = new Realm.App({ id: "data-vcjyu" });
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let setReady = useState(false)[1];
+    useEffect(() => {
+        (async () => {
+            await realmApp.logIn(Realm.Credentials.anonymous());
+            setReady(true);
+        })();
+    }, [setReady]);
+
 }
 
 export default App;
