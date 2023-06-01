@@ -15,7 +15,7 @@ export default function DocSearchResult({ fn }: { fn: FuncDoc }) {
                 <a
                     href={`https://github.com/${fn.repo}/blob/main/${fn.path}#:~:text=fn%20${fn.name}`}
                     target="_blank"
-                    className="sml m0 ml3"
+                    className="sml m0 ml3 sm-dn"
                     rel="noreferrer"
                 >
                     {fn.path}
@@ -28,20 +28,21 @@ export default function DocSearchResult({ fn }: { fn: FuncDoc }) {
                         href={`https://github.com/${fn.repo}`}
                         rel="noreferrer"
                     >
-                        {fn.repo}
+                        <span className="sm-dn">{fn.repo}</span>
+                        <img
+                            className="ml3"
+                            alt="GitHub stars"
+                            src={`https://img.shields.io/github/stars/${fn.repo}?style=for-the-badge`}
+                        />
                     </a>
-                    <img
-                        className="ml3"
-                        alt="GitHub stars"
-                        src={`https://img.shields.io/github/stars/${fn.repo}?style=for-the-badge`}
-                    />
                 </aside>
             </header>
             <section>
                 <p className="clear-fix">
                     <img
-                        className="ml3 fr"
-                        alt="GitHub stars"
+                        className="ml3 lg-fr sm-db sm-m0"
+                        style={{ marginBottom: "0.25em" }}
+                        alt="GitHub last commit"
                         src={`https://img.shields.io/github/last-commit/${fn.repo}?style=for-the-badge`}
                     />
                     {fn.desc}

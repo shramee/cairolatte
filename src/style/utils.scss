@@ -62,13 +62,25 @@
 }
 
 @media screen and (min-width: 768px) {
+    .lg-fr {
+        float: right;
+    }
     .lg-dn {
         display: none;
+    }
+    .lg-db {
+        display: block;
     }
 }
 
 @media screen and (max-width: 767px) {
     .sm-dn {
         display: none;
+    }
+    .sm-m0 {
+        margin: 0;
+    }
+    .sm-db {
+        display: block;
     }
 }

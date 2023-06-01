@@ -64,3 +64,15 @@
     color: #fff;
     padding: 0.5em 1.6rem;
 }
+
+@media screen and (max-width: 768px) {
+    .app-header {
+        font-size: 0.9em;
+        h1 {
+            font-size: 1em;
+        }
+        .search-wrap {
+            margin-left: 1rem;
+        }
+    }
+}

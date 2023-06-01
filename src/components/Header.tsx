@@ -11,9 +11,9 @@ export default function Header({ onSearch, query }: SearchBarProps) {
             <img
                 src="https://img.shields.io/badge/v0.1-BETA-orange?style=flat-square"
                 alt="Beta v0.1"
+                className="sm-dn ml3"
                 style={{
                     flex: "0 0 5.5em",
-                    marginLeft: "1em",
                 }}
             />
         </section>
