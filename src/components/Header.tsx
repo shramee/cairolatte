@@ -8,6 +8,14 @@ export default function Header({ onSearch, query }: SearchBarProps) {
             <img src={logo} className="app-logo" alt="logo" />
             <h1>Cairo Latte</h1>
             <SearchBar {...{ onSearch, query }} />
+            <img
+                src="https://img.shields.io/badge/v0.1-BETA-orange?style=flat-square"
+                alt="Beta v0.1"
+                style={{
+                    flex: "0 0 5.5em",
+                    marginLeft: "1em",
+                }}
+            />
         </section>
     );
 }
